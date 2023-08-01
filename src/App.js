@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Header from './components/Header/Header';
+import Form from './components/Form/Form';
+import MyOrg from './components/MyOrg';
 
 function App() {
+
+  const [showForm, updateShow] = useState(true)
+
+  //Ternario --> condicion? SeMuestra o noSemuestra
+
+  const toggleShow = () =>{
+    updateShow(!showForm)
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header />
+      {showForm && <Form />}
+      <MyOrg toggleShow ={toggleShow} />
     </div>
   );
 }
