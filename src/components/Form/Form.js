@@ -4,23 +4,32 @@ import Input from "../Input";
 import OptionList from "../optionList";
 import Button from "../Button";
 
-const Form = () => {
+const Form = (props) => {
 
     const [name, updateName] = useState("")
     const [position, updatePosition] = useState("")
     const [photo, updatePhoto] = useState("")
     const [team, updateTeam] = useState("")
 
+    const [titulo, setTitulo] = useState("")
+    const [color, setColor] = useState("")
+
+    const { registerColab, createTeam } = props
+
     const send = (e) => {
         e.preventDefault();
-        console.log("Enviando..")
         let datosEnviar = {
             name,
             position,
             photo,
             team
         }
-        console.log(datosEnviar)
+        registerColab(datosEnviar)
+    }
+
+    const sendTeam = (e) =>{
+        e.preventDefault()
+        createTeam({titulo, colorPrimario: color})
     }
 
     return <section className="form">
@@ -45,9 +54,27 @@ const Form = () => {
             <OptionList
                 value={team}
                 updateTeam={updateTeam}
+                teams={props.teams}
             />
 
             <Button text={"Crear"} />
+        </form>
+
+        <form onSubmit={sendTeam}>
+            <h2>Rellena el formulario para crear un equipo.</h2>
+            <Input
+                titulo="Titulo"
+                placeholder="Ingresar titulo"
+                required value={titulo}
+                updateName={setTitulo} />
+            <Input
+                titulo="Color"
+                placeholder="Ingresar el color en Hex"
+                required value={color}
+                updateName={setColor} 
+                type="color"
+                />
+            <Button text={"Crear equipo"} />
         </form>
     </section>
 }

@@ -2,21 +2,24 @@ import { useState } from "react";
 import "./input.css"
 
 
-const Input = (props) =>{
+const Input = (props) => {
     const [value, setValue] = useState("")
     const placeholderModificado = `${props.placeholder}...`
 
-    const manejar = (e) =>{
+    //Destucturacion
+    const { type = "text" } = props
+
+    const manejar = (e) => {
         props.updateName(e.target.value)
     }
-    return <div className="input">
+    return <div className={`input input-${type}`}>
         <label>{props.titulo}</label>
-        <input 
-        type="text" 
-        placeholder={placeholderModificado} 
-        required={props.required} 
-        value ={value.updateName} 
-        onChange={manejar}
+        <input
+            placeholder={placeholderModificado}
+            required={props.required}
+            value={value.updateName}
+            onChange={manejar}
+            type={type}
         />
     </div>
 }
