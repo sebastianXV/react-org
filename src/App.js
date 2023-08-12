@@ -86,7 +86,6 @@ function App() {
       photo: "https://github.com/sebastianXV.png",
       fav: false
     },
-    ,
     {
       id: uuid(),
       name: "Sebastian Rojas",
@@ -95,7 +94,6 @@ function App() {
       photo: "https://github.com/sebastianXV.png",
       fav: false
     },
-    ,
     {
       id: uuid(),
       name: "Sebastian Rojas",
@@ -104,7 +102,6 @@ function App() {
       photo: "https://github.com/sebastianXV.png",
       fav: false
     },
-    ,
     {
       id: uuid(),
       name: "Sebastian Rojas",
@@ -113,7 +110,6 @@ function App() {
       photo: "https://github.com/sebastianXV.png",
       fav: false
     },
-    ,
     {
       id: uuid(),
       name: "Sebastian Rojas",
@@ -206,7 +202,6 @@ function App() {
 
   //Dar like
   const like = (id) => {
-    console.log("like", id)
     const newCollaborators = collaborators.map((collaborator) => {
       if (collaborator.id === id) {
         collaborator.fav =!collaborator.fav
@@ -237,7 +232,8 @@ function App() {
           deleteColab={deleteColab}
           updateColor={updateColor}
           like={like}
-        />)
+        />
+        )
       }
 
       <Footer />

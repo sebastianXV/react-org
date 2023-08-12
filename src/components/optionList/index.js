@@ -1,10 +1,7 @@
 import "./optionList.css"
 const OptionList = (props) =>{
-
-
-
+    
         const change = (e) =>{
-            console.log("cambio", e.target.value)
             props.updateTeam(e.target.value)
         }
     

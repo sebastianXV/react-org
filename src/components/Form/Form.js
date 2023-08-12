@@ -38,17 +38,21 @@ const Form = (props) => {
             <Input
                 titulo="Nombre"
                 placeholder="Ingresar nombre"
-                required value={name}
-                updateName={updateName} />
+                required 
+                value={name}
+                updateName={updateName}
+                 />
             <Input
                 titulo="Puesto"
                 placeholder="Ingresar puesto"
-                required value={position}
+                required 
+                value={position}
                 updateName={updatePosition} />
             <Input
                 titulo="Foto"
                 placeholder="Ingresar enlace de foto"
-                required value={photo}
+                required 
+                value={photo}
                 updateName={updatePhoto} />
 
             <OptionList
@@ -70,10 +74,12 @@ const Form = (props) => {
             <Input
                 titulo="Color"
                 placeholder="Ingresar el color en Hex"
-                required value={color}
+                required 
+                value={color}
                 updateName={setColor} 
                 type="color"
                 />
+
             <Button text={"Crear equipo"} />
         </form>
     </section>
